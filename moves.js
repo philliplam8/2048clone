@@ -56,8 +56,7 @@ function myMove(direction) {
         if (isNextTileSame(currentCell, direction)) {
           console.log("merge possible");
 
-          let mergedTile = new Tile("4", nextCell(currentCell, direction)); //TODO
-          // need to remove tiles
+          mergeTile(currentCell, direction);
 
         } else {
           console.log("cannot merge");
@@ -78,7 +77,7 @@ function myMove(direction) {
         console.log("check if merge is possible");
         if (isNextTileSame(currentCell, direction)) {
           console.log("merge possible");
-
+          mergeTile(currentCell, direction);
         } else {
           console.log("cannot merge");
         }
@@ -174,7 +173,7 @@ function isNextTileSame(currentCell, direction) {
 function createTile() { // add parameters later "value, position"
   const testValue = "2";
   var allCellsList = document.querySelectorAll(".cell");
-  var filledCellsList = document.querySelectorAll(".filled"); // Currently there is no need for any "filled" related thing anymore (FLAWED == doesn't account for movement)
+  //var filledCellsList = document.querySelectorAll(".filled"); // Currently there is no need for any "filled" related thing anymore (FLAWED == doesn't account for movement)
   var emptyCellsList = [];
 
   for (i = 0; i < 16; i++) {
@@ -196,11 +195,59 @@ function createTile() { // add parameters later "value, position"
 
   // Insert Tile In
   testPosition.appendChild(newTile);
-  testPosition.setAttribute("class", testPosition.getAttribute("class") + " filled");
+  //testPosition.setAttribute("class", testPosition.getAttribute("class") + " filled");
   return newTile;
+}
+
+function mergeTile(currentCell, direction) {
+  // need to add tile in the position of nextTile
+  // need to remove currentTile and nextTile
+  var currentTile = currentCell.firstElementChild;
+
+  // Create the Tile Element
+  var newTile = document.createElement("div");
+  newTile.setAttribute("id", "animate");
+  var unmergedTileValue = currentTile.innerHTML;
+  var mergedTileValue = (parseInt(unmergedTileValue) * 2).toString();
+  newTile.innerHTML = mergedTileValue;
+
+  switch (mergedTileValue) {
+    case "4":
+      newTile.setAttribute("class", "col tile--four");
+      break;
+    case "8":
+      newTile.setAttribute("class", "col tile--eight");
+      break;
+    case "16":
+      newTile.setAttribute("class", "col tile--onesix");
+      break;
+    case "32":
+      newTile.setAttribute("class", "col tile--threetwo");
+      break;
+    case "64":
+      newTile.setAttribute("class", "col tile--sixfour");
+      break;
+    case "128":
+      newTile.setAttribute("class", "col tile--onetwoeight");
+      break;
+    case "256":
+      newTile.setAttribute("class", "col tile--twofivesix");
+      break;
+    case "1024":
+      newTile.setAttribute("class", "col tile--onezerotwofour");
+      break;
+    case "2048":
+      newTile.setAttribute("class", "col tile--twozerofoureight");
+      break;
+  }
+
+  nextCell(currentCell, direction).appendChild(newTile);
+  removeCurrentTile(currentCell);
+  removeNextTile(currentCell, direction);
 
 }
 
+/*
 function removeFilledAttribute(currentCell) {
   var classAttribute = currentCell.getAttribute("class");
   const total = classAttribute.length;
@@ -208,14 +255,15 @@ function removeFilledAttribute(currentCell) {
   currentCell.setAttribute("class", newClassAttribute);
   return;
 }
+*/
 
 function removeCurrentTile(currentCell) {
-  removeFilledAttribute(currentCell);
+  //removeFilledAttribute(currentCell);
   currentCell.firstElementChild.remove();
 }
 
 function removeNextTile(currentCell, direction) {
-  removeFilledAttribute(nextCell(currentCell, direction));
+  //removeFilledAttribute(nextCell(currentCell, direction));
   nextCell(currentCell, direction).firstElementChild.remove();
 }
 
