@@ -1,0 +1,83 @@
+/* Use the following command to auto-compile the sass file to css:
+sass --watch styles.scss build/styles.css
+
+Use BEM convention for naming selectors
+*/
+/* Sass allows constants in CSS */
+$cell-border-color: #BBADA0;
+$primary-color: #DFB68C;
+
+/* Class Selectors */
+.cell {
+  border: 5px solid $cell-border-color;
+  background-color: #CDC0B4;
+  height: 150px;
+  width: 150px;
+  padding: 0;
+}
+
+.col {}
+
+.controls {
+  margin: 25px 0 25px;
+}
+
+.tile--two {
+  background-color: #EEE4DA;
+}
+
+.tile--four {
+  background-color: #EDE0C8;
+}
+
+.tile--eight {
+  background-color: #F2B179;
+}
+
+.tile--onesix {
+  background-color: #F59563;
+}
+
+.tile--threetwo {
+  background-color: #F67C5F;
+}
+
+.tile--sixfour {}
+
+.tile--onetwoeight {}
+
+.tile--twofivesix {}
+
+.tile--onezerotwofour {}
+
+.tile--twozerofoureight {}
+
+/* Id Selectors */
+#animate {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game {
+  margin: 25px;
+}
+
+#gameCells {
+  margin: 0 10% 0;
+}
+
+#title {
+  background-color: #FBEEC1;
+}
+
+/* Tag Selectors */
+body {
+  background-color: #FAF8EF;
+}
+
+button {}
