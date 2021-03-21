@@ -19,7 +19,7 @@ $primary-color: #DFB68C;
 .col {}
 
 .controls {
-  margin: 25px 0 25px;
+  margin: 25px 0;
 }
 
 .tile--two {
@@ -42,15 +42,25 @@ $primary-color: #DFB68C;
   background-color: #F67C5F;
 }
 
-.tile--sixfour {}
+.tile--sixfour {
+  background-color: #F65D3B;
+}
 
-.tile--onetwoeight {}
+.tile--onetwoeight {
+  background-color: #EDCE71;
+}
 
-.tile--twofivesix {}
+.tile--twofivesix {
+  background-color: #F0CC5A;
+}
 
-.tile--onezerotwofour {}
+.tile--onezerotwofour {
+  background-color: #EDC53F;
+}
 
-.tile--twozerofoureight {}
+.tile--twozerofoureight {
+  background-color: #EEC22E;
+}
 
 /* Id Selectors */
 #animate {
@@ -68,14 +78,14 @@ $primary-color: #DFB68C;
 }
 
 #gameCells {
-  margin: 0 10% 0;
+  margin: 0 10%;
 }
 
 #title {
   background-color: #FBEEC1;
 }
-
 /* Tag Selectors */
+
 body {
   background-color: #FAF8EF;
 }

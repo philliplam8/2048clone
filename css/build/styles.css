@@ -14,7 +14,7 @@ Use BEM convention for naming selectors
 }
 
 .controls {
-  margin: 25px 0 25px;
+  margin: 25px 0;
 }
 
 .tile--two {
@@ -37,6 +37,26 @@ Use BEM convention for naming selectors
   background-color: #F67C5F;
 }
 
+.tile--sixfour {
+  background-color: #F65D3B;
+}
+
+.tile--onetwoeight {
+  background-color: #EDCE71;
+}
+
+.tile--twofivesix {
+  background-color: #F0CC5A;
+}
+
+.tile--onezerotwofour {
+  background-color: #EDC53F;
+}
+
+.tile--twozerofoureight {
+  background-color: #EEC22E;
+}
+
 /* Id Selectors */
 #animate {
   margin: auto;
@@ -53,7 +73,7 @@ Use BEM convention for naming selectors
 }
 
 #gameCells {
-  margin: 0 10% 0;
+  margin: 0 10%;
 }
 
 #title {
