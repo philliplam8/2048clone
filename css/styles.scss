@@ -6,6 +6,7 @@ Use BEM convention for naming selectors
 /* Sass allows constants in CSS */
 $cell-border-color: #BBADA0;
 $primary-color: #DFB68C;
+$white-font: #FEFCF4;
 
 /* Class Selectors */
 .cell {
@@ -32,34 +33,42 @@ $primary-color: #DFB68C;
 
 .tile--eight {
   background-color: #F2B179;
+  color: $white-font;
 }
 
 .tile--onesix {
   background-color: #F59563;
+  color: $white-font;
 }
 
 .tile--threetwo {
   background-color: #F67C5F;
+  color: $white-font;
 }
 
 .tile--sixfour {
   background-color: #F65D3B;
+  color: $white-font;
 }
 
 .tile--onetwoeight {
   background-color: #EDCE71;
+  color: $white-font;
 }
 
 .tile--twofivesix {
   background-color: #F0CC5A;
+  color: $white-font;
 }
 
 .tile--onezerotwofour {
   background-color: #EDC53F;
+  color: $white-font;
 }
 
 .tile--twozerofoureight {
   background-color: #EEC22E;
+  color: $white-font;
 }
 
 /* Id Selectors */

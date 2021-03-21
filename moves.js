@@ -13,12 +13,15 @@ TODO:
 2. Edge Cases (TBD)
 - Obstacles...
 --> [x] If Wall (do nothing)
---> Else (Another Tile)...
-----> If same value, merge
+--> [x] Else (Another Tile)...
+----> [x] If same value, merge
 ----> [x] else, do nothing
-3. Use RNG to create new 2 pieces
+3. [x] Use RNG to create new 2 pieces
 4. Win condition
+- once you get 2048
 5. Lose condition (will be hard)
+- no more blocks
+- no more merge possibilities
 5. Scoring
 6. Undo?
 
@@ -82,7 +85,6 @@ function myMove(direction) {
           console.log("cannot merge");
         }
       }
-
     }
   }
 }

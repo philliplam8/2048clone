@@ -27,34 +27,42 @@ Use BEM convention for naming selectors
 
 .tile--eight {
   background-color: #F2B179;
+  color: #FEFCF4;
 }
 
 .tile--onesix {
   background-color: #F59563;
+  color: #FEFCF4;
 }
 
 .tile--threetwo {
   background-color: #F67C5F;
+  color: #FEFCF4;
 }
 
 .tile--sixfour {
   background-color: #F65D3B;
+  color: #FEFCF4;
 }
 
 .tile--onetwoeight {
   background-color: #EDCE71;
+  color: #FEFCF4;
 }
 
 .tile--twofivesix {
   background-color: #F0CC5A;
+  color: #FEFCF4;
 }
 
 .tile--onezerotwofour {
   background-color: #EDC53F;
+  color: #FEFCF4;
 }
 
 .tile--twozerofoureight {
   background-color: #EEC22E;
+  color: #FEFCF4;
 }
 
 /* Id Selectors */
