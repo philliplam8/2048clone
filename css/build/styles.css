@@ -1,17 +1,96 @@
-/* Error: expected "{".
- *    ,
- * 53 |   color: $white-font;
- *    |                     ^
- *    '
- *   styles.scss 53:21  root stylesheet */
+/* Use the following command to auto-compile the sass file to css:
+sass --watch styles.scss build/styles.css
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 53 \2502    color: $white-font;\d\a    \2502                      ^\a    \2575 \a   styles.scss 53:21  root stylesheet';
+Use BEM convention for naming selectors
+*/
+/* Sass allows constants in CSS */
+/* Class Selectors */
+.cell {
+  border: 5px solid #BBADA0;
+  background-color: #CDC0B4;
+  height: 150px;
+  width: 150px;
+  padding: 0;
 }
+
+.controls {
+  margin: 25px 0;
+}
+
+.tile--two {
+  background-color: #EEE4DA;
+}
+
+.tile--four {
+  background-color: #EDE0C8;
+}
+
+.tile--eight {
+  background-color: #F2B179;
+  color: #FEFCF4;
+}
+
+.tile--onesix {
+  background-color: #F59563;
+  color: #FEFCF4;
+}
+
+.tile--threetwo {
+  background-color: #F67C5F;
+  color: #FEFCF4;
+}
+
+.tile--sixfour {
+  background-color: #F65D3B;
+  color: #FEFCF4;
+}
+
+.tile--onetwoeight {
+  background-color: #EDCE71;
+  color: #FEFCF4;
+}
+
+.tile--twofivesix {
+  background-color: #F0CC5A;
+  color: #FEFCF4;
+}
+
+.tile--onezerotwofour {
+  background-color: #EDC53F;
+  color: #FEFCF4;
+}
+
+.tile--twozerofoureight {
+  background-color: #EEC22E;
+  color: #FEFCF4;
+}
+
+/* Id Selectors */
+#animate {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game {
+  margin: 25px;
+}
+
+#gameCells {
+  margin: 0 10%;
+}
+
+#title {
+  background-color: #FBEEC1;
+}
+
+/* Tag Selectors */
+body {
+  background-color: #FAF8EF;
+}
+
+/*# sourceMappingURL=styles.css.map */
