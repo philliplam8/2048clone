@@ -27,42 +27,34 @@ Use BEM convention for naming selectors
 
 .tile--eight {
   background-color: #F2B179;
-  color: #FEFCF4;
 }
 
 .tile--onesix {
   background-color: #F59563;
-  color: #FEFCF4;
 }
 
 .tile--threetwo {
   background-color: #F67C5F;
-  color: #FEFCF4;
 }
 
 .tile--sixfour {
   background-color: #F65D3B;
-  color: #FEFCF4;
 }
 
 .tile--onetwoeight {
   background-color: #EDCE71;
-  color: #FEFCF4;
 }
 
 .tile--twofivesix {
   background-color: #F0CC5A;
-  color: #FEFCF4;
 }
 
 .tile--onezerotwofour {
   background-color: #EDC53F;
-  color: #FEFCF4;
 }
 
 .tile--twozerofoureight {
   background-color: #EEC22E;
-  color: #FEFCF4;
 }
 
 /* Id Selectors */
@@ -74,6 +66,42 @@ Use BEM convention for naming selectors
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */
+  display: none;
+}
+
+#overlayText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+#overlayRestartButton {
+  position: relative;
+  top: 60%;
+  left: 50%;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 #game {
