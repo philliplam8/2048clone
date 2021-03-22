@@ -19,12 +19,10 @@ Use BEM convention for naming selectors
 
 .tile--two {
   background-color: #EEE4DA;
-  color: #F7F7F7;
 }
 
 .tile--four {
   background-color: #EDE0C8;
-  color: #F7F7F7;
 }
 
 .tile--eight {
