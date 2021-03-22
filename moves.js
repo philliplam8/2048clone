@@ -236,6 +236,9 @@ function mergeTile(currentCell, direction) {
     case "256":
       newTile.setAttribute("class", "col tile--twofivesix");
       break;
+    case "512":
+      newTile.setAttribute("class", "col tile--fiveonetwo");
+      break;
     case "1024":
       newTile.setAttribute("class", "col tile--onezerotwofour");
       break;
