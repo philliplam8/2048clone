@@ -19,42 +19,57 @@ Use BEM convention for naming selectors
 
 .tile--two {
   background-color: #EEE4DA;
+  color: #F7F7F7;
 }
 
 .tile--four {
   background-color: #EDE0C8;
+  color: #F7F7F7;
 }
 
 .tile--eight {
   background-color: #F2B179;
+  color: #F7F7F7;
 }
 
 .tile--onesix {
   background-color: #F59563;
+  color: #F7F7F7;
 }
 
 .tile--threetwo {
   background-color: #F67C5F;
+  color: #F7F7F7;
 }
 
 .tile--sixfour {
   background-color: #F65D3B;
+  color: #F7F7F7;
 }
 
 .tile--onetwoeight {
   background-color: #EDCE71;
+  color: #F7F7F7;
 }
 
 .tile--twofivesix {
   background-color: #F0CC5A;
+  color: #F7F7F7;
+}
+
+.tile--fiveonetwo {
+  background-color: #EDC850;
+  color: #F7F7F7;
 }
 
 .tile--onezerotwofour {
   background-color: #EDC53F;
+  color: #F7F7F7;
 }
 
 .tile--twozerofoureight {
   background-color: #EEC22E;
+  color: #F7F7F7;
 }
 
 /* Id Selectors */
