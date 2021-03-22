@@ -13,15 +13,14 @@ TODO:
 2. Edge Cases (TBD)
 - Obstacles...
 --> [x] If Wall (do nothing)
---> [x] Else (Another Tile)...
-----> [x] If same value, merge
+--> Else (Another Tile)...
+----> If same value, merge
 ----> [x] else, do nothing
-3. [x] Use RNG to create new 2 pieces
+3. Use RNG to create new 2 pieces
+-> [x] Start game with random 2's
+-> limit createTile logic if there are no more possible moves
 4. Win condition
-- once you get 2048
 5. Lose condition (will be hard)
-- no more blocks
-- no more merge possibilities
 5. Scoring
 6. Undo?
 
@@ -85,6 +84,7 @@ function myMove(direction) {
           console.log("cannot merge");
         }
       }
+
     }
   }
 }
@@ -184,6 +184,7 @@ function createTile() { // add parameters later "value, position"
     }
   }
 
+  // Randomized Position for New Tile
   var testRNG = Math.floor(Math.random() * emptyCellsList.length);
   var testPosition = emptyCellsList[testRNG];
 
@@ -240,6 +241,7 @@ function mergeTile(currentCell, direction) {
       break;
     case "2048":
       newTile.setAttribute("class", "col tile--twozerofoureight");
+      winCondition();
       break;
   }
 
@@ -271,6 +273,19 @@ function removeNextTile(currentCell, direction) {
 
 function resetBOM() { //
   window.location.reload(); // reload the page from cache
+}
+
+function winCondition() {
+  var overlayScreen = document.getElementById("overlay");
+  var overlayText = document.getElementById("overlayText");
+  overlayText.innerHTML = "You Win!";
+  overlayScreen.style.display = "block";
+}
+
+// Start game
+window.onload = function() {
+  createTile();
+  createTile();
 }
 
 // Detect arrow keys

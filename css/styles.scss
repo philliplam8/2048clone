@@ -6,7 +6,6 @@ Use BEM convention for naming selectors
 /* Sass allows constants in CSS */
 $cell-border-color: #BBADA0;
 $primary-color: #DFB68C;
-$white-font: #FEFCF4;
 
 /* Class Selectors */
 .cell {
@@ -33,42 +32,34 @@ $white-font: #FEFCF4;
 
 .tile--eight {
   background-color: #F2B179;
-  color: $white-font;
 }
 
 .tile--onesix {
   background-color: #F59563;
-  color: $white-font;
 }
 
 .tile--threetwo {
   background-color: #F67C5F;
-  color: $white-font;
 }
 
 .tile--sixfour {
   background-color: #F65D3B;
-  color: $white-font;
 }
 
 .tile--onetwoeight {
   background-color: #EDCE71;
-  color: $white-font;
 }
 
 .tile--twofivesix {
   background-color: #F0CC5A;
-  color: $white-font;
 }
 
 .tile--onezerotwofour {
   background-color: #EDC53F;
-  color: $white-font;
 }
 
 .tile--twozerofoureight {
   background-color: #EEC22E;
-  color: $white-font;
 }
 
 /* Id Selectors */
@@ -82,6 +73,39 @@ $white-font: #FEFCF4;
   justify-content: center;
 }
 
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  display: none;
+}
+
+#overlayText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+#overlayRestartButton {
+  position: relative;
+  top: 60%;
+  left: 50%;
+  font-size: 30px;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
 #game {
   margin: 25px;
 }
@@ -93,8 +117,10 @@ $white-font: #FEFCF4;
 #title {
   background-color: #FBEEC1;
 }
-
 /* Tag Selectors */
+
 body {
   background-color: #FAF8EF;
 }
+
+button {}
