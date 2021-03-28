@@ -6,8 +6,8 @@ Use BEM convention for naming selectors
 /* Sass allows constants in CSS */
 /* Class Selectors */
 .cell {
-  border: 5px solid #BBADA0;
-  background-color: #CDC0B4;
+  border: 5px solid #bbada0;
+  background-color: #cdc0b4;
   height: 150px;
   width: 150px;
   padding: 0;
@@ -18,56 +18,56 @@ Use BEM convention for naming selectors
 }
 
 .tile--two {
-  background-color: #EEE4DA;
+  background-color: #eee4da;
 }
 
 .tile--four {
-  background-color: #EDE0C8;
+  background-color: #ede0c8;
 }
 
 .tile--eight {
-  background-color: #F2B179;
-  color: #F7F7F7;
+  background-color: #f2b179;
+  color: #f7f7f7;
 }
 
 .tile--onesix {
-  background-color: #F59563;
-  color: #F7F7F7;
+  background-color: #f59563;
+  color: #f7f7f7;
 }
 
 .tile--threetwo {
-  background-color: #F67C5F;
-  color: #F7F7F7;
+  background-color: #f67c5f;
+  color: #f7f7f7;
 }
 
 .tile--sixfour {
-  background-color: #F65D3B;
-  color: #F7F7F7;
+  background-color: #f65d3b;
+  color: #f7f7f7;
 }
 
 .tile--onetwoeight {
-  background-color: #EDCE71;
-  color: #F7F7F7;
+  background-color: #edce71;
+  color: #f7f7f7;
 }
 
 .tile--twofivesix {
-  background-color: #F0CC5A;
-  color: #F7F7F7;
+  background-color: #f0cc5a;
+  color: #f7f7f7;
 }
 
 .tile--fiveonetwo {
-  background-color: #EDC850;
-  color: #F7F7F7;
+  background-color: #edc850;
+  color: #f7f7f7;
 }
 
 .tile--onezerotwofour {
-  background-color: #EDC53F;
-  color: #F7F7F7;
+  background-color: #edc53f;
+  color: #f7f7f7;
 }
 
 .tile--twozerofoureight {
-  background-color: #EEC22E;
-  color: #F7F7F7;
+  background-color: #eec22e;
+  color: #f7f7f7;
 }
 
 /* Id Selectors */
@@ -89,15 +89,29 @@ Use BEM convention for naming selectors
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Black background with opacity */
   z-index: 2;
   /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer;
   /* Add a pointer on hover */
   display: none;
+  /* none=off, block=on */
+  /* Animation*/
+  background-color: rgba(0, 0, 0, 0);
+  /* Black background with opacity */
+  animation-name: endGame;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  /* Otherwise the animation will loop */
 }
 
+@keyframes endGame {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+}
 #overlayText {
   position: absolute;
   top: 50%;
@@ -126,12 +140,12 @@ Use BEM convention for naming selectors
 }
 
 #title {
-  background-color: #FBEEC1;
+  background-color: #fbeec1;
 }
 
 /* Tag Selectors */
 body {
-  background-color: #FAF8EF;
+  background-color: #faf8ef;
 }
 
 /*# sourceMappingURL=styles.css.map */

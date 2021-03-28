@@ -4,75 +4,76 @@ sass --watch styles.scss build/styles.css
 Use BEM convention for naming selectors
 */
 /* Sass allows constants in CSS */
-$cell-border-color: #BBADA0;
-$primary-color: #DFB68C;
-$font-color: #F7F7F7;
+$cell-border-color: #bbada0;
+$primary-color: #dfb68c;
+$font-color: #f7f7f7;
 
 /* Class Selectors */
 .cell {
   border: 5px solid $cell-border-color;
-  background-color: #CDC0B4;
+  background-color: #cdc0b4;
   height: 150px;
   width: 150px;
   padding: 0;
 }
 
-.col {}
+.col {
+}
 
 .controls {
   margin: 25px 0;
 }
 
 .tile--two {
-  background-color: #EEE4DA;
+  background-color: #eee4da;
 }
 
 .tile--four {
-  background-color: #EDE0C8;
+  background-color: #ede0c8;
 }
 
 .tile--eight {
-  background-color: #F2B179;
+  background-color: #f2b179;
   color: $font-color;
 }
 
 .tile--onesix {
-  background-color: #F59563;
+  background-color: #f59563;
   color: $font-color;
 }
 
 .tile--threetwo {
-  background-color: #F67C5F;
+  background-color: #f67c5f;
   color: $font-color;
 }
 
 .tile--sixfour {
-  background-color: #F65D3B;
+  background-color: #f65d3b;
   color: $font-color;
 }
 
 .tile--onetwoeight {
-  background-color: #EDCE71;
+  background-color: #edce71;
   color: $font-color;
 }
 
 .tile--twofivesix {
-  background-color: #F0CC5A;
+  background-color: #f0cc5a;
   color: $font-color;
 }
 
 .tile--fiveonetwo {
-  background-color: #EDC850;
+  background-color: #edc850;
   color: $font-color;
 }
 
 .tile--onezerotwofour {
-  background-color: #EDC53F;
+  background-color: #edc53f;
   color: $font-color;
 }
 
 .tile--twozerofoureight {
-  background-color: #EEC22E;
+  background-color: #eec22e;
   color: $font-color;
 }
 
@@ -95,10 +96,24 @@ $font-color: #F7F7F7;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
-  display: none;
+  display: none; /* none=off, block=on */
+
+  /* Animation*/
+  background-color: rgba(0, 0, 0, 0); /* Black background with opacity */
+  animation-name: endGame;
+  animation-duration: 2s;
+  animation-fill-mode: forwards; /* Otherwise the animation will loop */
+}
+
+@keyframes endGame {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
 }
 
 #overlayText {
@@ -107,8 +122,8 @@ $font-color: #F7F7F7;
   left: 50%;
   font-size: 50px;
   color: white;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 #overlayRestartButton {
@@ -116,8 +131,8 @@ $font-color: #F7F7F7;
   top: 60%;
   left: 50%;
   font-size: 30px;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
 
 #game {
@@ -129,12 +144,13 @@ $font-color: #F7F7F7;
 }
 
 #title {
-  background-color: #FBEEC1;
+  background-color: #fbeec1;
 }
 /* Tag Selectors */
 
 body {
-  background-color: #FAF8EF;
+  background-color: #faf8ef;
 }
 
-button {}
+button {
+}

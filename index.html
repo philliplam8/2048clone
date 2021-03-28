@@ -6,24 +6,31 @@
   <title>2048 Clone</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Ubuntu&display=swap"
+    rel="stylesheet">
 
   <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link rel="stylesheet" href="css/build/styles.css">
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/0bb71ac991.js" crossorigin="anonymous"></script>
 
   <!-- Bootstrap Scripts -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
 
   <!-- Javascript -->
   <script src="moves.js"></script>
 
   <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 </head>
 
@@ -33,7 +40,8 @@
       <!-- Nav Bar -->
       <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">2048 Clone</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -66,30 +74,31 @@
     <div class="container">
       <p>Use the keyboard arrow keys or WASD keys to move.</p>
       <div id="overlay">
-          <div id="overlayText"></div>
-          <button id="overlayRestartButton" type="button" class="btn btn-success btn-lg" onclick="resetBOM()">Play Again</button>
+        <div id="overlayText"></div>
+        <button id="overlayRestartButton" type="button" class="btn btn-success btn-lg" onclick="resetBOM()">Play Again
+          <i class="fas fa-redo fa-sm"></i></button>
       </div>
       <div id="gameCells" class="row row-cols-4">
-          <div id="1" class="col cell edge-up edge-left"></div>
-          <div id="2" class="col cell edge-up filled">
-            <!--<div id="animate" class="col tile--two">2</div>-->
-          </div>
-          <div id="3" class="col cell edge-up filled">
+        <div id="1" class="col cell edge-up edge-left"></div>
+        <div id="2" class="col cell edge-up filled">
+          <!--<div id="animate" class="col tile--two">2</div>-->
+        </div>
+        <div id="3" class="col cell edge-up filled">
           <!--  <div id="animate" class="col tile--four">4</div> -->
-          </div>
-          <div id="4" class="col cell edge-up edge-right"></div>
-          <div id="5" class="col cell edge-left"></div>
-          <div id="6" class="col cell"></div>
-          <div id="7" class="col cell"></div>
-          <div id="8" class="col cell edge-right"></div>
-          <div id="9" class="col cell edge-left"></div>
-          <div id="10" class="col cell"></div>
-          <div id="11" class="col cell"></div>
-          <div id="12" class="col cell edge-right"></div>
-          <div id="13" class="col cell edge-down edge-left"></div>
-          <div id="14" class="col cell edge-down"></div>
-          <div id="15" class="col cell edge-down"></div>
-          <div id="16" class="col cell edge-down edge-right"></div>
+        </div>
+        <div id="4" class="col cell edge-up edge-right"></div>
+        <div id="5" class="col cell edge-left"></div>
+        <div id="6" class="col cell"></div>
+        <div id="7" class="col cell"></div>
+        <div id="8" class="col cell edge-right"></div>
+        <div id="9" class="col cell edge-left"></div>
+        <div id="10" class="col cell"></div>
+        <div id="11" class="col cell"></div>
+        <div id="12" class="col cell edge-right"></div>
+        <div id="13" class="col cell edge-down edge-left"></div>
+        <div id="14" class="col cell edge-down"></div>
+        <div id="15" class="col cell edge-down"></div>
+        <div id="16" class="col cell edge-down edge-right"></div>
       </div>
     </div>
   </section>
