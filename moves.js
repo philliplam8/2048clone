@@ -55,10 +55,8 @@ function moveAllPieces(direction) {
       moveOnePiece(movingPiecesList[i], currentCell, direction);
     }
   } else { // (direction == "Up" || direction == "Left")
-    console.log("moveAllPiecesUp");
     for (i = 0; i < numMovingPieces; i++) { // Loop through each tile on the board
       var currentCell = movingPiecesList[i].parentElement; // Position of the moving piece on the board
-      console.log("going to moveOnePiece for ", i);
       moveOnePiece(movingPiecesList[i], currentCell, direction);
     }
   }
@@ -76,9 +74,7 @@ function moveOnePiece(movingPiece, currentCell, direction) {
   currentCell.appendChild(movingPiece);
 
   if (isNextToTile(currentCell, direction)) {
-    //console.log("check if merge is possible");
     if (isNextTileSame(currentCell, direction)) {
-      //console.log("merge possible");
       mergeTile(currentCell, direction);
     }
   }
@@ -145,7 +141,6 @@ function isNextToTile(currentCell, direction) {
 
 function isNextTileSame(currentCell, direction) {
   var result = currentCell.firstElementChild.innerHTML == nextCell(currentCell, direction).firstElementChild.innerHTML;
-  //console.log("print", result);
   return result;
 }
 
@@ -176,7 +171,6 @@ function areNeighboursSame(currentCell) {
 
 
 function createTile() { // add parameters later "value, position"
-  console.log("create tile");
   const testValue = "2";
   var allCellsList = document.querySelectorAll(".cell");
   var emptyCellsList = [];
@@ -273,24 +267,20 @@ function winCondition() {
   var overlayText = document.getElementById("overlayText");
   overlayText.innerHTML = "You Win!";
   overlayScreen.style.display = "block"; // Turn On Overlay
-  console.log("win");
 }
 
 function loseCondition() {
   // Only run if all cells are filled
   // Lose if there is no neighbour with the same value
 
-  console.log("lose condition function start");  // Check if all cells are filled
+  // Check if all cells are filled
   var isGameOver;
   var isBoardFull;
   var allCellsList = document.querySelectorAll(".cell");
 
-  console.log("first loop");
   for (i = 0; i < 16; i++) {
-    console.log("first loop ", i);
     if (allCellsList[i].childElementCount == 0) { // check if each cell has a tile
       isBoardFull = false;
-      console.log("returning false ", i, allCellsList[i], allCellsList[i].childElementCount);
       return false; // Stop the loop, we found empty cell. Impossible to lose
     }
   }
@@ -299,14 +289,11 @@ function loseCondition() {
 
   // Check if there are any neighbours with same value
   if (isBoardFull) {
-    console.log("board is not full");
     for (i = 0; i < 16; i++) {
-      console.log(i);
       var currentCell = allCellsList[i];
-      // TODO : cannot do the  following since there are edges (rewrite a more robust neightbours check)
+      // TODO : cannot do the following since there are edges (rewrite a more robust neightbours check)
       if (areNeighboursSame(currentCell)) {
         isGameOver = false;
-        console.log("are neighbours same for cell ", i, ": ", isGameOver);
         return false;
       }
     } isGameOver = true;
