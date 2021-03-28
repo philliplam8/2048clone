@@ -63,7 +63,10 @@ function moveAllPieces(direction) {
     }
   }
   createTile();
-  loseCondition(); // must go after createTile() for scenario where board needs 1 more to be full & loses;
+
+  if (!document.querySelector(".tile--twozerofoureight")) {
+    loseCondition(); // must go after createTile() for scenario where board needs 1 more to be full & loses;
+  }
 }
 
 function moveOnePiece(movingPiece, currentCell, direction) {
@@ -77,8 +80,6 @@ function moveOnePiece(movingPiece, currentCell, direction) {
     if (isNextTileSame(currentCell, direction)) {
       //console.log("merge possible");
       mergeTile(currentCell, direction);
-    } else {
-      //console.log("cannot merge");
     }
   }
 }
@@ -272,6 +273,7 @@ function winCondition() {
   var overlayText = document.getElementById("overlayText");
   overlayText.innerHTML = "You Win!";
   overlayScreen.style.display = "block"; // Turn On Overlay
+  console.log("win");
 }
 
 function loseCondition() {
