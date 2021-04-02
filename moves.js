@@ -14,15 +14,18 @@ TODO:
 - Obstacles...
 --> [x] If Wall (do nothing)
 --> Else (Another Tile)...
-----> If same value, merge
+----> [x] If same value, merge
 ----> [x] else, do nothing
-3. Use RNG to create new 2 pieces
+3. [x] Use RNG to create new 2 pieces
 -> [x] Start game with random 2's
 -> limit createTile logic if there are no more possible moves (needs to be before/during while loop)
+-> limit merge logic (16 8 8 in a row, hit right)
 4. [x] Win condition
 5. [x] Lose condition (will be hard)
-5. Scoring
-6. Undo?
+6. Animate movements 
+7. Refactor to use a Tile Class structure 
+8 .Scoring
+9. Undo?
 
 If direction... (check wall first tho)
 - Right, plus 1
@@ -71,7 +74,33 @@ function moveOnePiece(movingPiece, currentCell, direction) {
   while (isFreeToMove(currentCell, direction)) {
     currentCell = nextCell(currentCell, direction) // Find position in furthest direction
   }
-  currentCell.appendChild(movingPiece);
+  // NEW ANIMATION CODE ***********************
+  // by now, currentCell is the destination
+  /*
+  var destination = currentCell;
+  var tileDistance = destination.getBoundingClientRect().y - movingPiece.parentElement.getBoundingClientRect().y;
+  const oneUnit = currentCell.getBoundingClientRect().height;
+
+  var id;
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 10);
+
+  function frame() {
+    if (pos >= tileDistance) { // Exit condition
+      clearInterval(id);
+      movingPiece.style.top = 0;
+      currentCell.appendChild(movingPiece); // place in destination
+
+    } else {
+      pos += (oneUnit * 0.25); // move fast
+      movingPiece.style.top = pos + 'px';
+    }
+  }
+*/
+  // ******************************************
+
+  currentCell.appendChild(movingPiece); // currentCell is now the destination of the moving ile
 
   if (isNextToTile(currentCell, direction)) {
     if (isNextTileSame(currentCell, direction)) {
@@ -169,7 +198,6 @@ function areNeighboursSame(currentCell) {
   return false;
 }
 
-
 function createTile() { // add parameters later "value, position"
   const testValue = "2";
   var allCellsList = document.querySelectorAll(".cell");
@@ -195,6 +223,25 @@ function createTile() { // add parameters later "value, position"
 
   // Insert Tile In
   testPosition.appendChild(newTile);
+
+  // Animation
+  anime({
+    targets: newTile,
+
+    // Properties
+    scale: [0, 1],
+
+    borderRadius: {
+      value: 0,
+      duration: 500
+    },
+    duration: 300,
+
+    easing: 'linear',
+    //Animation Parameters
+    //direction: 'alternate',
+  })
+
   return newTile;
 }
 
@@ -243,6 +290,12 @@ function mergeTile(currentCell, direction) {
       winCondition();
       break;
   }
+
+  // Animation: Keep merged tiles square shaped
+  anime({
+    targets: newTile,
+    borderRadius: 0,
+  })
 
   nextCell(currentCell, direction).appendChild(newTile);
   removeCurrentTile(currentCell);
