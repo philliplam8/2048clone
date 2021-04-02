@@ -13,6 +13,10 @@ Use BEM convention for naming selectors
   padding: 0;
 }
 
+.container {
+  position: relative;
+}
+
 .controls {
   margin: 25px 0;
 }
@@ -79,6 +83,9 @@ Use BEM convention for naming selectors
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  z-index: 1;
+  border-radius: 100px;
 }
 
 #overlay {
