@@ -295,6 +295,11 @@ function mergeTile(currentCell, direction) {
   anime({
     targets: newTile,
     borderRadius: 0,
+    scale: {
+      value: [1.2, 1],
+      duration: 500,
+      easing: 'easeInOutQuart'
+    }
   })
 
   nextCell(currentCell, direction).appendChild(newTile);
