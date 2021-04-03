@@ -382,7 +382,7 @@ window.onload = function () {
   createTile();
 }
 
-// Detect arrow keys
+// Detect keyboard arrow keys
 window.addEventListener("keydown", function (event) {
 
   if (event.defaultPrevented) {
@@ -427,3 +427,44 @@ window.addEventListener("keydown", function (event) {
   // Cancel the default action to avoid it being handled twice
   event.preventDefault();
 }, true);
+
+// Detect mobile swipe gestures
+var initialX;
+var initialY;
+
+function touchStart(event) {
+    initialX = event.touches[0].clientX;
+    initialY = event.touches[0].clientY;
+    //document.getElementById("initial").innerHTML = "Press Down at " + initialX + ", " + initialY;
+}
+
+function touchMove(event) {
+    var x = event.touches[0].clientX;
+    var y = event.touches[0].clientY;
+
+    //document.getElementById("position").innerHTML = x + ", " + y;
+
+    var xDist = Math.abs(x - initialX);
+    var yDist = Math.abs(y - initialY);
+
+    if (xDist > yDist) {
+        if (initialX < x) { // Right
+            //document.getElementById("direction").innerHTML = "RIGHT";
+            moveAllPieces("Right");
+        } else { // Left
+            //document.getElementById("direction").innerHTML = "LEFT";
+            moveAllPieces("Left");
+        }
+    } else {
+        if (initialY < y) { // Down
+            //document.getElementById("direction").innerHTML = "DOWN";
+            moveAllPieces("Down");
+        } else { // Up
+            //document.getElementById("direction").innerHTML = "UP";
+            moveAllPieces("Up");
+        }
+    }
+}
+
+document.addEventListener('touchstart', touchStart, false);
+document.addEventListener('touchmove', touchMove, false);
