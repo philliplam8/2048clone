@@ -29,6 +29,8 @@ TODO:
 7. Refactor to use a Tile Class structure 
 8. Scoring
 9. Undo?
+10. [x] Mobile support
+11. Dark Theme button
 
 If direction... (check wall first tho)
 - Right, plus 1
