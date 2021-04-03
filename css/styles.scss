@@ -5,16 +5,18 @@ Use BEM convention for naming selectors
 */
 /* Sass allows constants in CSS */
 $cell-border-color: #bbada0;
+$cell-background: #cdc0b4;
 $primary-color: #dfb68c;
 $font-color: #f7f7f7;
 
 /* Class Selectors */
 .cell {
   border: 5px solid $cell-border-color;
-  background-color: #cdc0b4;
+  background-color: $cell-background;
   height: 150px;
   width: 150px;
   padding: 0;
+  border-radius: 10px;
 }
 
 .container {
@@ -145,6 +147,7 @@ $font-color: #f7f7f7;
 
 #gameCells {
   margin: 0 10%;
+  background-color: $cell-border-color;
 }
 
 #title {

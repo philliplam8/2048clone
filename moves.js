@@ -18,13 +18,16 @@ TODO:
 ----> [x] else, do nothing
 3. [x] Use RNG to create new 2 pieces
 -> [x] Start game with random 2's
--> limit createTile logic if there are no more possible moves (needs to be before/during while loop)
+-> [x] limit createTile logic if there are no more possible moves (needs to be before/during while loop)
 -> limit merge logic (16 8 8 in a row, hit right)
 4. [x] Win condition
 5. [x] Lose condition (will be hard)
 6. Animate movements 
+-> [x] new tiles
+-> [x] merging
+-> moving tiles across board 
 7. Refactor to use a Tile Class structure 
-8 .Scoring
+8. Scoring
 9. Undo?
 
 If direction... (check wall first tho)
@@ -43,11 +46,10 @@ document.getElementById("gameCells").children[0] etc.
 
 [x] REFACTOR and make function isNextCellEmpty do more heavy lifting
 */
-
-
+var movesThisTurn;
 
 function moveAllPieces(direction) {
-
+  movesThisTurn = 0;
   var movingPiecesList = document.querySelectorAll("#animate"); // Get all moving pieces
   var numMovingPieces = movingPiecesList.length; // Number of moving piece
 
@@ -63,24 +65,30 @@ function moveAllPieces(direction) {
       moveOnePiece(movingPiecesList[i], currentCell, direction);
     }
   }
-  createTile();
 
+  // Only create new tile if at least 1 tile has moved
+  if (movesThisTurn !== 0) {
+    createTile();
+  }
+
+  // Check for lose condition
   if (!document.querySelector(".tile--twozerofoureight")) {
     loseCondition(); // must go after createTile() for scenario where board needs 1 more to be full & loses;
   }
 }
 
 function moveOnePiece(movingPiece, currentCell, direction) {
+  const initialPosition = currentCell;
   while (isFreeToMove(currentCell, direction)) {
     currentCell = nextCell(currentCell, direction) // Find position in furthest direction
   }
   // NEW ANIMATION CODE ***********************
   // by now, currentCell is the destination
+  //
   /*
   var destination = currentCell;
-  var tileDistance = destination.getBoundingClientRect().y - movingPiece.parentElement.getBoundingClientRect().y;
+  var tileDistance = Math.abs(destination.getBoundingClientRect().y - movingPiece.parentElement.getBoundingClientRect().y);
   const oneUnit = currentCell.getBoundingClientRect().height;
-
   var id;
   var pos = 0;
   clearInterval(id);
@@ -93,19 +101,26 @@ function moveOnePiece(movingPiece, currentCell, direction) {
       currentCell.appendChild(movingPiece); // place in destination
 
     } else {
+      //pos ++;
       pos += (oneUnit * 0.25); // move fast
       movingPiece.style.top = pos + 'px';
     }
   }
 */
   // ******************************************
+  // To revert, uncomment the next line and remove the same line from the if loop above
+  currentCell.appendChild(movingPiece); // currentCell is now the destination of the moving tile
 
-  currentCell.appendChild(movingPiece); // currentCell is now the destination of the moving ile
-
+  // If merge is possible, merge tiles
   if (isNextToTile(currentCell, direction)) {
     if (isNextTileSame(currentCell, direction)) {
       mergeTile(currentCell, direction);
     }
+  }
+
+  // Detect if successful tile move was made
+  if (initialPosition !== currentCell) {
+    movesThisTurn++;
   }
 }
 
@@ -230,16 +245,12 @@ function createTile() { // add parameters later "value, position"
 
     // Properties
     scale: [0, 1],
-
     borderRadius: {
-      value: 0,
+      value: 5,
       duration: 500
     },
     duration: 300,
-
-    easing: 'linear',
-    //Animation Parameters
-    //direction: 'alternate',
+    easing: 'linear'
   })
 
   return newTile;
@@ -291,21 +302,20 @@ function mergeTile(currentCell, direction) {
       break;
   }
 
-  // Animation: Keep merged tiles square shaped
+  nextCell(currentCell, direction).appendChild(newTile);
+  removeCurrentTile(currentCell);
+  removeNextTile(currentCell, direction);
+
+  // Animation: Keep merged tiles rounded square shaped & highlight action
   anime({
     targets: newTile,
-    borderRadius: 0,
+    borderRadius: [0, 5],
     scale: {
       value: [1.2, 1],
       duration: 500,
       easing: 'easeInOutQuart'
     }
   })
-
-  nextCell(currentCell, direction).appendChild(newTile);
-  removeCurrentTile(currentCell);
-  removeNextTile(currentCell, direction);
-
 }
 
 function removeCurrentTile(currentCell) {
