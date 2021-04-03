@@ -155,6 +155,7 @@ Use BEM convention for naming selectors
 /* Tag Selectors */
 body {
   background-color: #faf8ef;
+  overscroll-behavior: contain;
 }
 
 /*# sourceMappingURL=styles.css.map */

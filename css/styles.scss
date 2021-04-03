@@ -153,10 +153,11 @@ $font-color: #f7f7f7;
 #title {
   background-color: #fbeec1;
 }
-/* Tag Selectors */
 
+/* Tag Selectors */
 body {
   background-color: #faf8ef;
+  overscroll-behavior: contain; // prevent android chrome "pull down to refresh" feature
 }
 
 button {
