@@ -69,38 +69,64 @@
 
   <!-- Game -->
   <section id="game">
+
+    <!-- Game Controls -->
     <div class="controls">
       <button type="button" class="btn btn-secondary btn-lg" onclick="createTile()">Add Tile</button>
-      <button type="button" class="btn btn-outline-secondary btn-lg" onclick="resetBOM()">Reset</button>
-    </div>
+      <button type="button" class="btn btn-outline-secondary btn-lg" onclick="restartGame(0)">Reset</button>
 
-    <div class="container">
-      <p>On desktop, use the keyboard arrow keys or WASD keys to move.</p>
-      <p>On mobile, use swipe gestures to move.</p>
-      <div id="overlay">
-        <div id="overlayText"></div>
-        <button id="overlayRestartButton" type="button" class="btn btn-success btn-lg" onclick="resetBOM()">Play Again
-          <i class="fas fa-redo fa-sm"></i></button>
+      <div class="container">
+        <!-- Game Instructions -->
+        <p id="instructions">On desktop, use the keyboard arrow keys or WASD keys to move.
+          <br>
+          On mobile, use swipe gestures to move.
+        </p>
+
+        <!-- Overlay for Restart Game -->
+        <div id="overlay">
+          <div id="overlayText"></div>
+
+          <!-- User manually restarts game -->
+          <div class="flex-parent">
+            <button type="button" class="btn btn-danger btn-lg overlayRestartButton" onclick="resetBOM()">Yes</button>
+            <button type="button" class="btn btn-outline-light btn-lg overlayRestartButton"
+              onclick="restartGame(1)">No</button>
+          </div>
+          
+          <!-- User win/loses game -->
+          <button id="overlayPlayAgainButton" type="button" class="btn btn-success btn-lg" onclick="resetBOM()">Play
+            Again
+            <i class="fas fa-redo fa-sm"></i></button>
+        </div>
+
+        <!-- Game Board -->
+        <div id="gameCells" class="row row-cols-4">
+          <div id="1" class="col cell edge-up edge-left"></div>
+          <div id="2" class="col cell edge-up filled"></div>
+          <div id="3" class="col cell edge-up filled"></div>
+          <div id="4" class="col cell edge-up edge-right"></div>
+          <div id="5" class="col cell edge-left"></div>
+          <div id="6" class="col cell"></div>
+          <div id="7" class="col cell"></div>
+          <div id="8" class="col cell edge-right"></div>
+          <div id="9" class="col cell edge-left"></div>
+          <div id="10" class="col cell"></div>
+          <div id="11" class="col cell"></div>
+          <div id="12" class="col cell edge-right"></div>
+          <div id="13" class="col cell edge-down edge-left"></div>
+          <div id="14" class="col cell edge-down"></div>
+          <div id="15" class="col cell edge-down"></div>
+          <div id="16" class="col cell edge-down edge-right"></div>
+        </div>
       </div>
-      <div id="gameCells" class="row row-cols-4">
-        <div id="1" class="col cell edge-up edge-left"></div>
-        <div id="2" class="col cell edge-up filled"></div>
-        <div id="3" class="col cell edge-up filled"></div>
-        <div id="4" class="col cell edge-up edge-right"></div>
-        <div id="5" class="col cell edge-left"></div>
-        <div id="6" class="col cell"></div>
-        <div id="7" class="col cell"></div>
-        <div id="8" class="col cell edge-right"></div>
-        <div id="9" class="col cell edge-left"></div>
-        <div id="10" class="col cell"></div>
-        <div id="11" class="col cell"></div>
-        <div id="12" class="col cell edge-right"></div>
-        <div id="13" class="col cell edge-down edge-left"></div>
-        <div id="14" class="col cell edge-down"></div>
-        <div id="15" class="col cell edge-down"></div>
-        <div id="16" class="col cell edge-down edge-right"></div>
+
+      <!-- Developer Tools -->
+      <!-- 
+        <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+        <label class="custom-control-label" for="customSwitch1">Developer</label>
       </div>
-    </div>
+    -->
   </section>
 
 </body>

@@ -28,6 +28,7 @@ TODO:
 -> moving tiles across board 
 7. Refactor to use a Tile Class structure 
 8. Scoring
+- any tile that is removed, add the value of the tile to the score
 9. Undo?
 10. [x] Mobile support
 11. Dark Theme button
@@ -55,17 +56,20 @@ function moveAllPieces(direction) {
   var movingPiecesList = document.querySelectorAll("#animate"); // Get all moving pieces
   var numMovingPieces = movingPiecesList.length; // Number of moving piece
 
-  if (direction == "Down" || direction == "Right") {
+  switch (direction) {
+    case ("Down"):
+    case ("Right"):
+      for (i = numMovingPieces - 1; i >= 0; i--) { // Loop through each tile on the board
+        var currentCell = movingPiecesList[i].parentElement; // Position of the moving piece on the board
+        moveOnePiece(movingPiecesList[i], currentCell, direction);
+      }
 
-    for (i = numMovingPieces - 1; i >= 0; i--) { // Loop through each tile on the board
-      var currentCell = movingPiecesList[i].parentElement; // Position of the moving piece on the board
-      moveOnePiece(movingPiecesList[i], currentCell, direction);
-    }
-  } else { // (direction == "Up" || direction == "Left")
-    for (i = 0; i < numMovingPieces; i++) { // Loop through each tile on the board
-      var currentCell = movingPiecesList[i].parentElement; // Position of the moving piece on the board
-      moveOnePiece(movingPiecesList[i], currentCell, direction);
-    }
+    case ("Up"):
+    case ("Left"):
+      for (i = 0; i < numMovingPieces; i++) { // Loop through each tile on the board
+        var currentCell = movingPiecesList[i].parentElement; // Position of the moving piece on the board
+        moveOnePiece(movingPiecesList[i], currentCell, direction);
+      }
   }
 
   // Only create new tile if at least 1 tile has moved
@@ -332,10 +336,25 @@ function resetBOM() { //
   window.location.reload(); // reload the page from cache
 }
 
+// User chooses to restart game
+function restartGame(decision) {
+  document.getElementById("overlayText").innerHTML = "Are you sure?";
+  document.getElementById("overlay").style.display = "block";
+  var restartButtonsList = document.querySelectorAll(".overlayRestartButton");
+  for (i = 0; i < restartButtonsList.length; i++) {
+    restartButtonsList[i].style.display = "block"; // Turn On Overlay
+  }
+  if (decision) {
+    document.getElementById("overlay").style.display = "none";
+  }
+}
+
 function winCondition() {
   var overlayScreen = document.getElementById("overlay");
   var overlayText = document.getElementById("overlayText");
+  var playAgainButton = document.getElementById("overlayPlayAgainButton");
   overlayText.innerHTML = "You Win!";
+  playAgainButton.style.display = "block";
   overlayScreen.style.display = "block"; // Turn On Overlay
 }
 
@@ -373,7 +392,9 @@ function loseCondition() {
   if (isGameOver) {
     var overlayScreen = document.getElementById("overlay");
     var overlayText = document.getElementById("overlayText");
+    var playAgainButton = document.getElementById("overlayPlayAgainButton");
     overlayText.innerHTML = "Game Over!";
+    playAgainButton.style.display = "block";
     overlayScreen.style.display = "block"; // Turn On Overlay
   }
 }
@@ -435,37 +456,37 @@ var initialX;
 var initialY;
 
 function touchStart(event) {
-    initialX = event.touches[0].clientX;
-    initialY = event.touches[0].clientY;
-    //document.getElementById("initial").innerHTML = "Press Down at " + initialX + ", " + initialY;
+  initialX = event.touches[0].clientX;
+  initialY = event.touches[0].clientY;
+  //document.getElementById("initial").innerHTML = "Press Down at " + initialX + ", " + initialY;
 }
 
 function touchMove(event) {
-    var x = event.touches[0].clientX;
-    var y = event.touches[0].clientY;
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
 
-    //document.getElementById("position").innerHTML = x + ", " + y;
+  //document.getElementById("position").innerHTML = x + ", " + y;
 
-    var xDist = Math.abs(x - initialX);
-    var yDist = Math.abs(y - initialY);
+  var xDist = Math.abs(x - initialX);
+  var yDist = Math.abs(y - initialY);
 
-    if (xDist > yDist) {
-        if (initialX < x) { // Right
-            //document.getElementById("direction").innerHTML = "RIGHT";
-            moveAllPieces("Right");
-        } else { // Left
-            //document.getElementById("direction").innerHTML = "LEFT";
-            moveAllPieces("Left");
-        }
-    } else {
-        if (initialY < y) { // Down
-            //document.getElementById("direction").innerHTML = "DOWN";
-            moveAllPieces("Down");
-        } else { // Up
-            //document.getElementById("direction").innerHTML = "UP";
-            moveAllPieces("Up");
-        }
+  if (xDist > yDist) {
+    if (initialX < x) { // Right
+      //document.getElementById("direction").innerHTML = "RIGHT";
+      moveAllPieces("Right");
+    } else { // Left
+      //document.getElementById("direction").innerHTML = "LEFT";
+      moveAllPieces("Left");
     }
+  } else {
+    if (initialY < y) { // Down
+      //document.getElementById("direction").innerHTML = "DOWN";
+      moveAllPieces("Down");
+    } else { // Up
+      //document.getElementById("direction").innerHTML = "UP";
+      moveAllPieces("Up");
+    }
+  }
 }
 
 document.addEventListener('touchstart', touchStart, false);

@@ -27,6 +27,16 @@ $font-color: #f7f7f7;
   margin: 25px 0;
 }
 
+.flex-parent {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 .tile--two {
   background-color: #eee4da;
 }
@@ -132,13 +142,21 @@ $font-color: #f7f7f7;
   -ms-transform: translate(-50%, -50%);
 }
 
-#overlayRestartButton {
+#overlayPlayAgainButton {
   position: relative;
   top: 60%;
   left: 50%;
   font-size: 30px;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  display: none;
+}
+
+.overlayRestartButton {
+  position: relative;
+  margin: 3px;
+  font-size: 30px;
+  display: none;
 }
 
 #game {
@@ -148,6 +166,7 @@ $font-color: #f7f7f7;
 #gameCells {
   margin: 0 10%;
   background-color: $cell-border-color;
+  border-radius: 10px;
 }
 
 #title {
@@ -161,4 +180,9 @@ body {
 }
 
 button {
+  
+}
+
+p {
+  margin: 10px;
 }
