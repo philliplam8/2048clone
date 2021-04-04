@@ -22,6 +22,16 @@ Use BEM convention for naming selectors
   margin: 25px 0;
 }
 
+.flex-parent {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 .tile--two {
   background-color: #eee4da;
 }
@@ -130,13 +140,21 @@ Use BEM convention for naming selectors
   -ms-transform: translate(-50%, -50%);
 }
 
-#overlayRestartButton {
+#overlayPlayAgainButton {
   position: relative;
   top: 60%;
   left: 50%;
   font-size: 30px;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  display: none;
+}
+
+.overlayRestartButton {
+  position: relative;
+  margin: 3px;
+  font-size: 30px;
+  display: none;
 }
 
 #game {
@@ -146,6 +164,7 @@ Use BEM convention for naming selectors
 #gameCells {
   margin: 0 10%;
   background-color: #bbada0;
+  border-radius: 10px;
 }
 
 #title {
@@ -156,6 +175,10 @@ Use BEM convention for naming selectors
 body {
   background-color: #faf8ef;
   overscroll-behavior: contain;
+}
+
+p {
+  margin: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
