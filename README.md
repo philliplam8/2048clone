@@ -1,11 +1,7 @@
 # 2048 Clone
 This project is an attempt to clone the original 2048 game created by Gabriele Cirulli for educational purposes.
 
-## Getting Started
-
-### Prerequisites
-
-### Installing
+![demo image](https://github.com/philliplam8/2048clone/blob/main/2048%20demo%20image.png?raw=true)
 
 ## Built With
 
@@ -16,5 +12,5 @@ This project is an attempt to clone the original 2048 game created by Gabriele C
 ## Versioning
 
 ## Authors
-
 * **Gabriele Cirulli** - *Creator of original game* - Github [https://github.com/gabrielecirulli]
+* 
