@@ -5,6 +5,7 @@ class Tile {
   }
 }
 
+const devmode = document.getElementById("devmode");
 
 // Method 1: Manipulate DOM
 /* -------------------------------
@@ -485,6 +486,19 @@ function touchMove(event) {
     } else { // Up
       //document.getElementById("direction").innerHTML = "UP";
       moveAllPieces("Up");
+    }
+  }
+}
+
+function toggleDevMode() {
+  // enable Add Tile and Reset buttons
+  const DEV_MODE_ELEMENTS = document.getElementsByClassName("devmode");
+  for (let i = 0; i < DEV_MODE_ELEMENTS.length; i++) {
+    let isVisible = DEV_MODE_ELEMENTS[i].style.visibility;
+    if (isVisible == "visible") {
+      DEV_MODE_ELEMENTS[i].style.visibility = "hidden";
+    } else {
+      DEV_MODE_ELEMENTS[i].style.visibility = "visible";
     }
   }
 }
