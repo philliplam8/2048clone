@@ -9,8 +9,5 @@ This project is an attempt to clone the original 2048 game created by Gabriele C
 * [jQuery] (https://jquery.com/) - Used only once...
 * [AnimeJS] (https://animejs.com/) - The JS library used for animations
 
-## Versioning
-
 ## Authors
 * **Gabriele Cirulli** - *Creator of original game* - Github [https://github.com/gabrielecirulli]
-* 
