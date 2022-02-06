@@ -6,9 +6,12 @@ https://philliplam8.github.io/2048clone/
 
 ## Built With
 
-* [Bootstrap] (https://getbootstrap.com/) - The CSS library used
-* [jQuery] (https://jquery.com/)
-* [AnimeJS] (https://animejs.com/) - The JS library used for animations
+* [Bootstrap](https://getbootstrap.com/) - The CSS library used
+* [jQuery](https://jquery.com/)
+* [AnimeJS](https://animejs.com/) - The JS library used for animations
 
 ## Authors
 * **Gabriele Cirulli** - *Creator of original game* - Github [https://github.com/gabrielecirulli]
+
+## License
+2048clone is licensed under the [MIT license](https://github.com/philliplam8/2048clone/blob/main/LICENSE.txt)
